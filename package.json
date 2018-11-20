@@ -1,0 +1,19 @@
+{
+  "name": "campaignimageserv",
+  "version": "1.0.0",
+  "description": "a stateless image server which serves up images based on a csv file which defines campaigns for which to return images",
+  "main": "./app/src/start.js",
+  "scripts": {
+    "test": "./test/start.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/drayuka/campaignImageServ.git"
+  },
+  "author": "Clifton Tyler",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/drayuka/campaignImageServ/issues"
+  },
+  "homepage": "https://github.com/drayuka/campaignImageServ#readme"
+}

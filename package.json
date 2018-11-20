@@ -2,9 +2,10 @@
   "name": "campaignimageserv",
   "version": "1.0.0",
   "description": "a stateless image server which serves up images based on a csv file which defines campaigns for which to return images",
-  "main": "./app/src/start.js",
+  "main": "./app/dist/start.js",
   "scripts": {
-    "test": "./test/start.js"
+    "start": "node ./app/dist/start.js",
+    "test": "node ./test/start.js"
   },
   "repository": {
     "type": "git",

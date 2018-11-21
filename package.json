@@ -4,10 +4,10 @@
   "description": "a stateless image server which serves up images based on a csv file which defines campaigns for which to return images",
   "main": "./app/dist/start.js",
   "scripts": {
-    "prestart": "tsc ./app/tsconfig.json",
+    "prestart": "tsc './app/tsconfig.json'",
     "start": "node ./app/dist/start.js",
-    "pretest": "tsc ./app/tsconfig.json",
-    "test": "node ./test/dist/start.js"
+    "pretest": "(cd app && tsc)",
+    "test": "mocha ./test/dist/start.js"
   },
   "repository": {
     "type": "git",

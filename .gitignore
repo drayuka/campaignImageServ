@@ -62,3 +62,6 @@ typings/
 
 # Unzipped files
 files/Homework/**/*
+
+# transpiled app files
+app/dist/**/*

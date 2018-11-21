@@ -4,8 +4,10 @@
   "description": "a stateless image server which serves up images based on a csv file which defines campaigns for which to return images",
   "main": "./app/dist/start.js",
   "scripts": {
+    "prestart": "tsc ./app/tsconfig.json",
     "start": "node ./app/dist/start.js",
-    "test": "node ./test/start.js"
+    "pretest": "tsc ./app/tsconfig.json",
+    "test": "node ./test/dist/start.js"
   },
   "repository": {
     "type": "git",
@@ -16,5 +18,14 @@
   "bugs": {
     "url": "https://github.com/drayuka/campaignImageServ/issues"
   },
-  "homepage": "https://github.com/drayuka/campaignImageServ#readme"
+  "homepage": "https://github.com/drayuka/campaignImageServ#readme",
+  "dependencies": {
+    "@types/express": "^4.16.0",
+    "express": "^4.16.4",
+    "typescript": "^3.1.6"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0"
+  }
 }

@@ -1,0 +1,8 @@
+priority,type,criteria,Image
+1,Geo,Austin,Austin.jpg
+2,Geo,San Francisco,SanFrancisco.jpg
+3,Industry,Software,Software.jpg
+4,Industry,Sports,Sports.jpg
+5,Size,0-50,proof.png
+6,Size,100-200,smb.jpg
+7,Unknown,,shrug.jpg

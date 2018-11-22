@@ -7,7 +7,9 @@
     "prestart": "sh ./scripts/setup.sh",
     "start": "node ./app/dist/init.js",
     "pretest": "sh ./scripts/setup.sh",
-    "test": "mocha ./test/dist/start.js"
+    "test": "npm run mocha -- ./test/dist/start.js",
+    "mocha": "mocha",
+    "tsc": "tsc"
   },
   "repository": {
     "type": "git",

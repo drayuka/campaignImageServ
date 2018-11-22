@@ -91,18 +91,13 @@ describe('Campaign Server Tests', function () {
 
                 result.pipe(file);
                 file.on('close', function () {
-                    console.log('file ending');
                     let tmp = fs.readFileSync(tmpFileName, {encoding: 'base64'});
                     let original = fs.readFileSync(test.file, {encoding: 'base64'});
-                    if(!tmp) {
-                        console.log(original);
-                    }
                     assert.equal(original,tmp);
                     return done();
                 });
             });
             after(function (done) {
-                console.log('deleting ' + tmpFileName);
                 fs.unlink(tmpFileName, done);
             });
         });

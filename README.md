@@ -6,7 +6,7 @@ It will return images based on the campaigns specified in the ./files/CampaignCo
 
 ### usage
 
-you will need to clone and inflate via npm:
+you will need to inflate via npm:
 
 `npm install`
 
@@ -16,6 +16,6 @@ then you just need to start it up:
 
 ### testing
 
-automated test are setup in the node package and can be run via npm:
+automated tests are setup in the node package and can be run via npm:
 
 `npm test`

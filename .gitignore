@@ -65,3 +65,7 @@ files/Homework/**/*
 
 # transpiled app files
 app/dist/**/*
+
+# webpack bundle
+web/base/bundle.js
+web/base/bundle.js.map

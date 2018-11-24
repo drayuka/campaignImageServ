@@ -5,7 +5,7 @@ let fs = require('fs');
 const port = 3000;
 
 
-describe('Campaign Server Tests', function () {
+describe('/campaign/image', function () {
     let server;
     before(function (done) {
         if(!fs.existsSync(__dirname + '/tmp/')) {
@@ -20,53 +20,48 @@ describe('Campaign Server Tests', function () {
     let tests = [
         {
             name: 'Get Missing userId',
-            url: 'http://localhost:3000/campaignImage?',
+            url: 'http://localhost:3000/campaign/image?',
             file: __dirname + '/../../files/Homework/Proof Homework/shrug.jpg'
         },
         {
             name: 'Get Invalid userId',
-            url: 'http://localhost:3000/campaignImage?userId=-1',
+            url: 'http://localhost:3000/campaign/image?userId=-1',
             file: __dirname + '/../../files/Homework/Proof Homework/shrug.jpg'
         },
         {
             name: 'Get Austin User',
-            url: 'http://localhost:3000/campaignImage?userId=7',
+            url: 'http://localhost:3000/campaign/image?userId=7',
             file: __dirname + '/../../files/Homework/Proof Homework/Austin.jpg'  
         },
         {
             name: 'Get Second Austin User',
-            url: 'http://localhost:3000/campaignImage?userId=1',
+            url: 'http://localhost:3000/campaign/image?userId=1',
             file: __dirname + '/../../files/Homework/Proof Homework/Austin.jpg'
         },
         {
             name: 'Get San Francisco User',
-            url: 'http://localhost:3000/campaignImage?userId=6',
+            url: 'http://localhost:3000/campaign/image?userId=6',
             file: __dirname + '/../../files/Homework/Proof Homework/SanFrancisco.jpg'
         },
         {
             name: 'Get Software User',
-            url: 'http://localhost:3000/campaignImage?userId=8',
+            url: 'http://localhost:3000/campaign/image?userId=8',
             file: __dirname + '/../../files/Homework/Proof Homework/Software.jpg'
         },
         {
             name: 'Get Sports User',
-            url: 'http://localhost:3000/campaignImage?userId=3',
+            url: 'http://localhost:3000/campaign/image?userId=3',
             file: __dirname + '/../../files/Homework/Proof Homework/Sports.jpg'
         },
         {
             name: 'Get Small Size User',
-            url: 'http://localhost:3000/campaignImage?userId=9',
+            url: 'http://localhost:3000/campaign/image?userId=9',
             file: __dirname + '/../../files/Homework/Proof Homework/proof.png'
         },
         {
             name: 'Get Medium Size User',
-            url: 'http://localhost:3000/campaignImage?userId=5',
+            url: 'http://localhost:3000/campaign/image?userId=5',
             file: __dirname + '/../../files/Homework/Proof Homework/smb.jpg'
-        },
-        {
-            name: 'Get no Campaign',
-            url: 'http://localhost:3000/campaignImage?userid=11',
-            file: __dirname + '/../../files/Homework/Proof Homework/shrug.jpg'
         }
         //TODO: add in a user and test which does not qualify for a campaign, but is still a user we have information on
     ];
@@ -107,4 +102,28 @@ describe('Campaign Server Tests', function () {
         fs.rmdirSync(__dirname + '/tmp/');
         server.close(done);
     });
-})
+});
+
+describe("/user", function () {
+    let server;
+    before(function (done) {
+        server = app.listen(port, () => {
+            console.log(`Test server running on port ${port}`);
+            done();
+        })
+    });
+
+    describe("add user", () => {
+        let result;
+        before(function (done) {
+            http.get(test.url, function (res) {
+                result = res;
+                return done();
+            })
+        })
+    })
+
+    after(function (done) {
+        server.close(done);
+    });
+});

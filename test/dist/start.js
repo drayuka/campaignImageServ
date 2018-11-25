@@ -2,7 +2,7 @@ let assert = require('chai').assert;
 let app = require('../../app/dist/campaignServer.js').app;
 let http = require('http');
 let fs = require('fs');
-const port = 3000;
+const port = 3001;
 
 
 describe('/campaign/image', function () {
@@ -20,47 +20,47 @@ describe('/campaign/image', function () {
     let tests = [
         {
             name: 'Get Missing userId',
-            url: 'http://localhost:3000/campaign/image?',
+            url: 'http://localhost:3001/campaign/image?',
             file: __dirname + '/../../files/Homework/Proof Homework/shrug.jpg'
         },
         {
             name: 'Get Invalid userId',
-            url: 'http://localhost:3000/campaign/image?userId=-1',
+            url: 'http://localhost:3001/campaign/image?userId=-1',
             file: __dirname + '/../../files/Homework/Proof Homework/shrug.jpg'
         },
         {
             name: 'Get Austin User',
-            url: 'http://localhost:3000/campaign/image?userId=7',
+            url: 'http://localhost:3001/campaign/image?userId=7',
             file: __dirname + '/../../files/Homework/Proof Homework/Austin.jpg'  
         },
         {
             name: 'Get Second Austin User',
-            url: 'http://localhost:3000/campaign/image?userId=1',
+            url: 'http://localhost:3001/campaign/image?userId=1',
             file: __dirname + '/../../files/Homework/Proof Homework/Austin.jpg'
         },
         {
             name: 'Get San Francisco User',
-            url: 'http://localhost:3000/campaign/image?userId=6',
+            url: 'http://localhost:3001/campaign/image?userId=6',
             file: __dirname + '/../../files/Homework/Proof Homework/SanFrancisco.jpg'
         },
         {
             name: 'Get Software User',
-            url: 'http://localhost:3000/campaign/image?userId=8',
+            url: 'http://localhost:3001/campaign/image?userId=8',
             file: __dirname + '/../../files/Homework/Proof Homework/Software.jpg'
         },
         {
             name: 'Get Sports User',
-            url: 'http://localhost:3000/campaign/image?userId=3',
+            url: 'http://localhost:3001/campaign/image?userId=3',
             file: __dirname + '/../../files/Homework/Proof Homework/Sports.jpg'
         },
         {
             name: 'Get Small Size User',
-            url: 'http://localhost:3000/campaign/image?userId=9',
+            url: 'http://localhost:3001/campaign/image?userId=9',
             file: __dirname + '/../../files/Homework/Proof Homework/proof.png'
         },
         {
             name: 'Get Medium Size User',
-            url: 'http://localhost:3000/campaign/image?userId=5',
+            url: 'http://localhost:3001/campaign/image?userId=5',
             file: __dirname + '/../../files/Homework/Proof Homework/smb.jpg'
         }
         //TODO: add in a user and test which does not qualify for a campaign, but is still a user we have information on

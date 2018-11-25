@@ -1,6 +1,7 @@
 import * as express from "express";
 import * as fs from "fs";
-import { Http2ServerResponse } from "http2";
+import * as path from "path";
+import * as Mocha from "mocha";
 
 
 let usersFile : string= fs.readFileSync(__dirname + '/../../files/Homework/Proof Homework/Proof_homework.csv', {encoding: 'utf8'});
@@ -137,6 +138,32 @@ app.get('/campaign/image', function (req, res) {
         root: root
     });    
 });
+
+
+app.get('/tests', function (req, res) {
+    let mocha = new Mocha({
+        reporter: 'doc'
+    });
+
+    // if the user runs tests multiple times they will not be re-run
+    // this is because mocha relies on them being run via require
+    // so this is a hack to clear the test file from the require cache
+    // so that the tests will re-run every time the user loads this
+    delete require.cache[require.resolve(__dirname + '/../../test/dist/start.js')];
+
+    mocha.addFile(__dirname + '/../../test/dist/start.js');
+    let stdoutWrite = process.stdout.write;
+    let testresults = '';
+
+    process.stdout.write = <any>function(str : any) {
+        testresults += str;
+    }
+    mocha.run((failures: number) => {
+        process.stdout.write = stdoutWrite;
+        res.send(testresults);
+    });
+
+})
 
 let nodePackageOptions = {
     dotfiles: 'ignore',

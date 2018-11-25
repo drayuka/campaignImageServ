@@ -22,11 +22,11 @@ export class NavBar extends React.Component {
         for(let i = 0; i < linkTypes.length; i++) {
             let link = linkTypes[i];
             if(this.props.pageState == link.stateName) {
-                links.push(<li className="nav-item active" onClick={(e) => this.props.onNav(link.stateName)}>
+                links.push(<li key={link.stateName} className="nav-item active" onClick={(e) => this.props.onNav(link.stateName)}>
                     <a className="nav-link" href='#'>{link.name}</a>
                 </li>);
             } else {
-                links.push(<li className="nav-item" onClick={(e) => this.props.onNav(link.stateName)}>
+                links.push(<li key={link.stateName} className="nav-item" onClick={(e) => this.props.onNav(link.stateName)}>
                     <a className="nav-link" href='#'>{link.name}</a>
                 </li>);
             }

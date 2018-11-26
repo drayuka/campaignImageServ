@@ -16,24 +16,23 @@ export class NavBar extends React.Component {
         let linkTypes : {name: string, stateName: pageStates}[] = [
             {name: 'Simulate', stateName: 'simulate'},
             {name: 'Tests', stateName: 'tests'},
-            {name: 'Campaigns', stateName: 'campaigns'},
-            {name: 'Users', stateName: 'users'}
+            {name: 'Campaigns', stateName: 'campaigns'}
         ]
         for(let i = 0; i < linkTypes.length; i++) {
             let link = linkTypes[i];
-            if(this.props.pageState == link.stateName) {
-                links.push(<li key={link.stateName} className="nav-item active" onClick={(e) => this.props.onNav(link.stateName)}>
+            if(self.props.pageState == link.stateName) {
+                links.push(<li key={link.stateName} className="nav-item active" onClick={(e) => self.props.onNav(link.stateName)}>
                     <a className="nav-link" href='#'>{link.name}</a>
                 </li>);
             } else {
-                links.push(<li key={link.stateName} className="nav-item" onClick={(e) => this.props.onNav(link.stateName)}>
+                links.push(<li key={link.stateName} className="nav-item" onClick={(e) => self.props.onNav(link.stateName)}>
                     <a className="nav-link" href='#'>{link.name}</a>
                 </li>);
             }
         }
 
         return <header className="navbar navbar-expand-lg navbar-light bg-light">
-            <a className="navbar-brand" onClick={(e) => this.props.onNav('simulate')}>Campaign Image Server</a>
+            <a className="navbar-brand" onClick={(e) => self.props.onNav('simulate')}>Campaign Image Server</a>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
             </button>

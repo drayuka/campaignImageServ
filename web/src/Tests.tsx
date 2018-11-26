@@ -4,7 +4,7 @@ export class Tests extends React.Component {
     constructor(props: any) {
         super(props);
         let self = this;
-        this.state = {
+        self.state = {
             testOutput: ''
         };
         self.startRunTests();

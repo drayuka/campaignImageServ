@@ -1,6 +1,6 @@
 rm -rf ./files/Homework
 echo 'removed Homework files'
-node scripts/unzip.js
+npm run unzip
 echo 'reinflated Homework files'
 npm run tsc -- -p ./app
 echo 'typescript transpilation complete'

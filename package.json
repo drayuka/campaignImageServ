@@ -10,7 +10,8 @@
     "test": "npm run mocha -- ./test/dist/start.js",
     "mocha": "mocha",
     "tsc": "tsc",
-    "webpack": "webpack-cli"
+    "webpack": "webpack-cli",
+    "unzip": "node ./scripts/unzip.js"
   },
   "repository": {
     "type": "git",

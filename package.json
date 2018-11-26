@@ -24,6 +24,7 @@
   "homepage": "https://github.com/drayuka/campaignImageServ#readme",
   "dependencies": {
     "chai": "^4.2.0",
+    "decompress": "^4.2.0",
     "express": "^4.16.4",
     "mocha": "^5.2.0",
     "react": "^16.6.3",

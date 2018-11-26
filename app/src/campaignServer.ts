@@ -4,13 +4,17 @@ import * as Mocha from "mocha";
 
 
 
-let usersFile : string= fs.readFileSync(__dirname + '/../../files/Homework/Proof Homework/Proof_homework.csv', {encoding: 'utf8'});
-let users : any[] = [];
-let campaigns : any[] = [];
+let users : any[];
+let campaigns : any[];
 
-let loadCampaigns = function () {
+export let loadCampaigns = function (filename?: string ) {
+    campaigns = [];
+    let campaignsFileName = __dirname + '/../../files/CampaignConfig.csv';
+    if(filename) {
+        campaignsFileName = filename;
+    }
     let campaignStrings : string[][] = [];
-    let campaignsFile : string = fs.readFileSync(__dirname + '/../../files/CampaignConfig.csv',{encoding:'utf8'});
+    let campaignsFile : string = fs.readFileSync(campaignsFileName,{encoding:'utf8'});
     campaignsFile.split('\n').forEach((row) => campaignStrings.push(row.trim().split(',')));
     for(let i = 1; i < campaignStrings.length; i++) {
         let campaign: any = {};
@@ -23,13 +27,13 @@ let loadCampaigns = function () {
 
 let saveCampaigns = function () {
     let columns = Object.keys(campaigns[0]);
-    let changedRows = [columns.join(',') + "\n"];
+    let changedRows = [columns.join(',')];
     let rows = campaigns.forEach((campaign) => {
         let rowElements : any[]= [];
         columns.forEach((columnName) => {
             rowElements.push(campaign[columnName])
         });
-        changedRows.push(rowElements.join(',') + "\n");
+        changedRows.push(rowElements.join(','));
     });
     let changedCSV = changedRows.join('\n');
     
@@ -58,7 +62,9 @@ let sortCampaigns = function () {
 
 
 let loadUsers = function () {
+    users = [];
     let userStrings : string[][] = [];
+    let usersFile : string= fs.readFileSync(__dirname + '/../../files/Homework/Proof Homework/Proof_homework.csv', {encoding: 'utf8'});
 
     usersFile.split('\n').forEach((row) => userStrings.push(row.trim().split(',')));
 
@@ -97,6 +103,7 @@ app.put('/campaign/list', function (req, res) {
     res.sendStatus(200);
     sortCampaigns();
     saveCampaigns();
+    loadCampaigns();
 })
 
 
@@ -110,7 +117,10 @@ app.get('/campaign/image', function (req, res) {
     let user;
     if(!req.query.userId || userId >= users.length || userId < 0) {
         res.sendFile('files/Homework/Proof Homework/shrug.jpg', {
-            root: root
+            root: root,
+            headers: {
+                'Cache-Control' : 'no-cache'
+            }
         });
         return;
     } else {

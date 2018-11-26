@@ -30,10 +30,10 @@
             let image;
             if(self.state.imageUserId) {
                 image = <div className="card bg-dark text-dark">
-                    <img className="card-img" src={"/campaign/image?userId=" + this.state.imageUserId}></img>
+                    <img className="card-img" src={"/campaign/image?userId=" + self.state.imageUserId + "&randTime=" + (new Date()).getTime()}></img>
                     <div className="card-img-overlay">
                         <h5 className="card-title">Campaign Image</h5>
-                        <p className="card-text">Campaign Image for user with Id of: {this.state.userId}</p>
+                        <p className="card-text">Campaign Image for user with Id of: {self.state.userId}</p>
                     </div>
                 </div>
             }

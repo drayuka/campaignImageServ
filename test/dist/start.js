@@ -103,27 +103,3 @@ describe('/campaign/image', function () {
         server.close(done);
     });
 });
-
-describe("/user", function () {
-    let server;
-    before(function (done) {
-        server = app.listen(port, () => {
-            console.log(`Test server running on port ${port}`);
-            done();
-        })
-    });
-
-    describe("add user", () => {
-        let result;
-        before(function (done) {
-            http.get(test.url, function (res) {
-                result = res;
-                return done();
-            })
-        })
-    })
-
-    after(function (done) {
-        server.close(done);
-    });
-});

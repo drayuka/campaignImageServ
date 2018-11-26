@@ -14,6 +14,8 @@ then you just need to start it up:
 
 `npm start`
 
+and navigate to http://localhost:3000/
+
 ### testing
 
 automated tests are setup in the node package and can be run via npm:

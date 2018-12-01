@@ -4,9 +4,9 @@
   "description": "an image server which serves up images based on campaigns for which to return images",
   "main": "./app/dist/init.js",
   "scripts": {
-    "prestart": "sh ./scripts/setup.sh",
+    "prestart": "./scripts/setup.sh",
     "start": "node ./app/dist/init.js",
-    "pretest": "sh ./scripts/setup.sh",
+    "pretest": "./scripts/setup.sh",
     "test": "npm run mocha -- ./test/dist/start.js",
     "mocha": "mocha",
     "tsc": "tsc",

@@ -1,3 +1,4 @@
+#!/bin/bash
 rm -rf ./files/Homework
 echo 'removed Homework files'
 npm run unzip

@@ -69,3 +69,6 @@ app/dist/**/*
 # webpack bundle
 web/base/bundle.js
 web/base/bundle.js.map
+
+# linux caching
+v8-compile-cache-0/**/*
